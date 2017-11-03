@@ -1,0 +1,17 @@
+<div class="showfeedbutton">
+  <button class="btn btn-primary" routerLink="../displayfeedform">Show me Feeds</button>
+</div>
+<form [formGroup]="addfeedform">
+  <div class="container">
+    <div class="form-group">
+      <label for="addpost">Add post:</label>
+      <input type="textarea" rows="3" class="form-control" formControlName="feedstatus">
+      <!-- <p *ngIf="!loginform.get('email').valid && loginform.get('email').touched">enter valid email</p> -->
+    </div>
+    <div class="form-group">
+      <label for="addimage">Image URL:</label>
+      <input type="text" class="form-control" formControlName="feedimage">
+    </div>
+    <button type="submit" class="btn btn-default" (click)="onsubmit()">Submit</button>
+  </div>
+  </form>

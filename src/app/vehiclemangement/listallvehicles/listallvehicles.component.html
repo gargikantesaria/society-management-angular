@@ -1,0 +1,14 @@
+
+<div class="container">
+  <a class="list-group-item clearfix" *ngFor="let vehicle of vehicledata;let i=index">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading">{{vehicle.vehicletype}}</h4>
+      <p class="list-group-item-text">{{vehicle.vehicleregistrationno}}</p>
+      <h6 class="list-group-item-text">{{vehicle.vehiclecolor}}</h6>
+    </div>
+    <span class="pull-right">
+      <img src="https://drop.ndtv.com/albums/AUTO/lexus-es-300h/1200-6.jpg" alt="" class="img-responsive" style="max-height:50px">
+    </span>
+  </a> 
+  
+</div>

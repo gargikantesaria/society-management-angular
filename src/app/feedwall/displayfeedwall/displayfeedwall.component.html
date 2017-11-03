@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="addfeedbutton">
+    <button class="btn btn-primary" routerLink="../addfeedform">Add Feeds</button>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="page-header">
+        <h1><small class="pull-right">{{feedwalldata.length}} feeds</small> Feeds </h1>
+      </div>
+
+      <div class="comments-list" *ngFor="let feed of feedwalldata;let i=index">
+        <div class="media">
+          
+          <a class="media-left">
+                          <img src="{{feed.feedimage}}" style="max-height:50px">
+                </a>
+          <div class="media-body">
+
+            <h4 class="media-heading user_name"></h4>
+            <h4><b>Feed:</b></h4>{{feed.feedstatus}}
+
+            <div><small><a (click)="onlike(feed._id)" class="likebtn">Like</a></small>
+              <br>
+              <small><h5>Liked By:</h5></small>
+              <div *ngFor="let likeschema of feed.likeschema">
+                 <h6>{{likeschema.userid.firstname}}</h6> 
+              </div>
+            </div>
+
+            <div>
+              <form [formGroup]="addcommentform">
+                <p>
+                  <input type="text" formControlName="comment" class="form-control">
+                  <button class="btn btn-primary commentaddbtn" (click)="addcomment(feed._id)">Add</button>
+                </p>
+              </form>
+              <h5>Comments:</h5>
+              <div *ngFor="let commentschema of feed.commentschema">
+                <h6>{{commentschema.comment}}</h6>
+                
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

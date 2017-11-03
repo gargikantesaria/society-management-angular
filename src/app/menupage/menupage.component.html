@@ -1,0 +1,14 @@
+
+<div class="navbar">
+  <a class="navbar-brand" routerLink="../signup">Society Management</a>
+    <a routerLink="vehiclemanagement" routerLinkActive="active">Vehicle Management</a>
+    <a routerLink="maintainence" *ngIf="isadmintoken===1">Maintenance Management</a>
+    <a routerLink="addfeedform">Feed Wall</a>
+    <button class="btn btn-default" (click)="onlogout()">LogOut</button>
+  </div>
+<!-- <app-vehiclemangement></app-vehiclemangement> -->
+  
+  <div class="main">
+      <router-outlet></router-outlet>
+  </div>
+  

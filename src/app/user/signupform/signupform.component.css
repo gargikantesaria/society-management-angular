@@ -1,0 +1,12 @@
+input.ng-invalid.ng-touched
+{
+    border: 1px solid red;
+}
+p{
+    color: red;
+}
+.loginbutton
+{
+    float: right;
+    padding: 5px;
+}

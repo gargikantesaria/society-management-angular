@@ -1,0 +1,22 @@
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+}
+.comments-list .media{
+    border-bottom: 1px dotted #ccc;
+}
+.addfeedbutton
+{
+    float: right;
+    padding: 5px;
+}
+.commentaddbtn
+{
+    float: right;
+    align-self: right;
+}
+.likebtn
+{
+    float: right;
+    align-self: right;
+}

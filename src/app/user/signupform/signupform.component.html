@@ -1,0 +1,94 @@
+<div class="loginbutton">
+  <a class="btn btn-primary" routerLink="../loginform">Login</a>
+</div>
+<form [formGroup]="signupform">
+  <div class="container">
+    <div class="form-group">
+      <label for="firstname">First Name:</label>
+      <input type="text" class="form-control" formControlName="firstname">
+      <p *ngIf="!signupform.get('firstname').valid && signupform.get('firstname').touched">enter valid name(numeric value not acceptable)</p>
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name:</label>
+      <input type="text" class="form-control" formControlName="lastname">
+      <p *ngIf="!signupform.get('lastname').valid && signupform.get('lastname').touched">enter valid name(numeric value not acceptable)</p>
+    </div>
+    <div class="form-group">
+      <label for="bday">Birth Date:</label>
+      <input type="date" class="form-control" formControlName="birthdate" max="2017-10-30">
+      <p *ngIf="!signupform.get('birthdate').valid && signupform.get('birthdate').touched">enter valid birthdate</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" formControlName="email">
+      <p *ngIf="!signupform.get('email').valid && signupform.get('email').touched">enter valid email</p>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" formControlName="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+      <p *ngIf="!signupform.get('password').valid && signupform.get('password').touched">enter password which has one uppercase, one lowercase,number and a special character</p>
+    </div>
+    <div class="form-group">
+      <label for="pwd"> Conform Password:</label>
+      <input type="password" class="form-control" id="pwd" formControlName="conformpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+      <p *ngIf="signupform.get('password').value!==signupform.get('conformpassword').value && signupform.get('conformpassword').touched">enter password as above</p>
+
+    </div>
+    <div class="form-group">
+      <label for="bday">Flat Purchase Date:</label>
+      <input type="date" class="form-control" formControlName="flatpurchasedate" max="2017-10-30">
+      <p *ngIf="!signupform.get('flatpurchasedate').valid && signupform.get('flatpurchasedate').touched">enter the date when you purchsed flat</p>
+    </div>
+    <div class="form-group">
+      <label for="picture">Flat Picture:</label>
+      <input type="file" class="form-control" formControlName="picture" ng2FileSelect (change)="onfileupload($event)" accept="image/*">
+    </div>
+    <div class="form-group">
+      <label for="flatblock">Flat Block:</label>
+      <select class="form-control" formControlName="flatblock">
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+                  <option>D</option>
+                  <option>E</option>
+                  <option>F</option>
+                </select>
+      <p *ngIf="!signupform.get('flatblock').valid && signupform.get('flatblock').touched">enter valid block between A-F</p>
+
+    </div>
+    <div class="form-group">
+      <label for="flatno">Flat No:</label>
+      <select class="form-control" formControlName="flatno" min="1" max="20">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">10</option>
+                    </select>
+
+      <p *ngIf="!signupform.get('flatno').valid && signupform.get('flatno').touched">enter value between 1-20</p>
+    </div>
+
+
+  <div class="checkbox">
+    <label><input type="checkbox" formControlName="checkboxhere">This information given by me is correct</label>
+    <p *ngIf="!(signupform.get('checkboxhere').value==true)">check me here</p>
+  </div>
+  <button type="submit" class="btn btn-default" [disabled]="!signupform.valid" (click)="onsubmit()">Submit</button>
+  </div>
+</form>

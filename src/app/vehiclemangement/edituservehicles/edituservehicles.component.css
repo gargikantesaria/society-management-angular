@@ -1,0 +1,11 @@
+/* .container{
+    margin-left: 5px;
+} */
+
+input.ng-invalid.ng-touched
+{
+    border: 1px solid red;
+}
+p{
+    color: red;
+}
