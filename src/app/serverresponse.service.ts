@@ -79,9 +79,9 @@ export class serverresponse{
         {
             return this.http.post("http://localhost:3000/addfeedform",data,{headers:this.getheaders()})
         }
-        getfeedwalldata()
+        getfeedwalldata(data)
         {
-            return this.http.get("http://localhost:3000/displayfeedform",{headers:this.getheaders()});
+            return this.http.get("http://localhost:3000/displayfeedform/"+data,{headers:this.getheaders()});
         }
 
         addcommentdata(data:any)

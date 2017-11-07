@@ -1,14 +1,23 @@
+<div class="search-results"
+infiniteScroll
+[infiniteScrollDistance]="1"
+[infiniteScrollThrottle]="1000"
+(scrolled)="onScroll()"
+[scrollWindow]="false">
 <div class="container">
-  <div class="addfeedbutton">
+  <div class="addfeedbutton">{{infiniteScroll}}
     <button class="btn btn-primary" routerLink="../addfeedform">Add Feeds</button>
   </div>
+
+
   <div class="row">
     <div class="col-md-8">
       <div class="page-header">
         <h1><small class="pull-right">{{feedwalldata.length}} feeds</small> Feeds </h1>
       </div>
 
-      <div class="comments-list" *ngFor="let feed of feedwalldata;let i=index">
+
+      <div class="comments-list" *ngFor="let feed of feedwalldata">
         <div class="media">
           
           <a class="media-left">
@@ -44,6 +53,19 @@
           </div>
         </div>
       </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+      
     </div>
+    
   </div>
 </div>

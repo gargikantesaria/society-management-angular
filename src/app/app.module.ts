@@ -21,7 +21,8 @@ import { EdituservehiclesComponent } from './vehiclemangement/edituservehicles/e
 
 import { feedwallservice } from './feedservice.service';
 import { MaintainencemanagementComponent } from './maintainencemanagement/maintainencemanagement.component';
-import { maintainnenceservicecomponent } from './maintainenceservice.service';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 @NgModule({
   declarations: [
@@ -41,9 +42,9 @@ import { maintainnenceservicecomponent } from './maintainenceservice.service';
     
   ],
   imports: [
-    BrowserModule,routingmodule,RouterModule,ReactiveFormsModule,HttpModule,
+    BrowserModule,routingmodule,RouterModule,ReactiveFormsModule,HttpModule,InfiniteScrollModule
   ],
-  providers: [serverresponse,userservice,feedwallservice,maintainnenceservicecomponent],
+  providers: [serverresponse,userservice,feedwallservice],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

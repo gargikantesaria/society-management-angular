@@ -20,3 +20,7 @@
     float: right;
     align-self: right;
 }
+.search-results {
+    height: 50rem;
+    overflow: scroll;
+}

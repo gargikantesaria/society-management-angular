@@ -4,6 +4,8 @@ import { serverresponse } from '../../serverresponse.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { userservice } from '../../userservice.service';
 import { feedwallservice } from '../../feedservice.service';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 @Component({
   selector: 'app-displayfeedwall',
@@ -13,10 +15,10 @@ import { feedwallservice } from '../../feedservice.service';
 export class DisplayfeedwallComponent implements OnInit {
   
   constructor(private route:Router, private router:ActivatedRoute,private serverresservice:serverresponse,private userservice:userservice,private feedwallservice:feedwallservice) { }
-
+  p: number = 1;
   addcommentform:FormGroup;
   feedid;
-  feedwalldata=[{}];
+  feedwalldata=[];
   cdata=[];
   likes=[];
   ngOnInit() {
@@ -25,14 +27,27 @@ export class DisplayfeedwallComponent implements OnInit {
     })  
     this.addfeed();     
   }
+  onScroll () {
+    console.log('scrolled!!');
+    this.p+=1;
+    this.addfeed();
+}
 
   addfeed()
   {
-    this.serverresservice.getfeedwalldata().subscribe((data)=>{
-      
-      this.feedwalldata=data.json();
-      
-      console.log(this.feedwalldata);
+    this.serverresservice.getfeedwalldata(this.p).subscribe((data)=>{
+
+      if(data.status===200)
+      {
+        this.feedwalldata=this.feedwalldata.concat(data.json());
+        
+              // this.feedwalldata.concat(data);
+              
+              console.log(this.feedwalldata);
+              console.log(data)
+      }
+      },(error)=>{
+        alert("no data more");
       })
   }
 
@@ -63,6 +78,5 @@ export class DisplayfeedwallComponent implements OnInit {
      
     })
   }
- 
   
 }

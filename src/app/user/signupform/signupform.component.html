@@ -25,12 +25,14 @@
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" formControlName="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+      <!-- <input type="password" class="form-control" id="pwd" formControlName="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"> -->
+      <input type="password" class="form-control" id="pwd" formControlName="password">
+      
       <p *ngIf="!signupform.get('password').valid && signupform.get('password').touched">enter password which has one uppercase, one lowercase,number and a special character</p>
     </div>
     <div class="form-group">
       <label for="pwd"> Conform Password:</label>
-      <input type="password" class="form-control" id="pwd" formControlName="conformpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+      <input type="password" class="form-control" id="pwd" formControlName="conformpassword">
       <p *ngIf="signupform.get('password').value!==signupform.get('conformpassword').value && signupform.get('conformpassword').touched">enter password as above</p>
 
     </div>
